@@ -1,0 +1,71 @@
+<h4>Solution</h4>
+
+<pre class="prettyprint linenums">def get_selected_row(event):
+    try:
+        global selected_tuple
+        index=list1.curselection()[0]
+        selected_tuple=list1.get(index)
+        e1.delete(0,END)
+        e1.insert(END,selected_tuple[1])
+        e2.delete(0,END)
+        e2.insert(END,selected_tuple[2])
+        e3.delete(0,END)
+        e3.insert(END,selected_tuple[3])
+        e4.delete(0,END)
+        e4.insert(END,selected_tuple[4])
+    except IndexError:
+        pass</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4>Explanation</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>As you can see the error was fixed by simply implementing a <code>try</code>&nbsp; and <code>except</code>&nbsp; block. When the <code>get_selected_row</code>&nbsp; function is called, Python will try to execute the indented&nbsp;block under <code>try</code>&nbsp;. If there is an IndexError&nbsp;none of the lines under <code>try</code>&nbsp; will be executed. Instead the line under <code>except</code>&nbsp; will be executed which is <code>pass</code>&nbsp;. The&nbsp;<code>pass</code>&nbsp; stetement&nbsp;means do nothing. So the function will do nothing when there's an empty listbox.</p>

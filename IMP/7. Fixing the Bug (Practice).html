@@ -1,0 +1,86 @@
+<h4>Exercise</h4>
+
+<p>If you haven't noticed it already, the program has a bug. When the list box is empty and the user clicks it, an IndexError&nbsp;is generated in the terminal:</p>
+
+
+
+
+
+
+
+
+
+<figure><img src="https://udemy-images.s3.amazonaws.com:443/redactor/raw/2017-10-06_14-35-58-7cff140e7b388e39b1cec916bfe87b57.png" data-s3="https://udemy-images.s3.amazonaws.com:443/redactor/raw/2017-10-06_14-35-58-7cff140e7b388e39b1cec916bfe87b57.png"></figure>
+
+
+
+
+
+
+
+
+
+<h4>Why that happens?</h4>
+
+
+
+
+
+
+
+<p>That happens because when the user clicks the list box this code is executed:<br></p>
+
+
+
+
+
+
+
+
+
+<p><code>list1.bind('&lt;&lt;ListboxSelect&gt;&gt;',get_selected_row)</code>&nbsp;<br></p>
+
+
+
+
+
+<p>That line calls the&nbsp;<code>get_selected_row</code>&nbsp; function:</p>
+
+
+
+
+
+
+
+
+
+<pre class="prettyprint linenums">def get_selected_row(event):
+    global selected_tuple
+    index=list1.curselection()[0]
+    selected_tuple=list1.get(index)
+    e1.delete(0,END)
+    e1.insert(END,selected_tuple[1])
+    e2.delete(0,END)
+    e2.insert(END,selected_tuple[2])
+    e3.delete(0,END)
+    e3.insert(END,selected_tuple[3])
+    e4.delete(0,END)
+    e4.insert(END,selected_tuple[4])</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Since the listbox is empty, then <code>list1.curselection()</code>&nbsp;&nbsp;will be an empty list with no items. Trying to access the first item of that list with<code> [0]</code>&nbsp; in line 3 will throw an error since there is no first item in the list.&nbsp;</p><p>Please try to fix that bug. The next lecture contains the solution.</p>
