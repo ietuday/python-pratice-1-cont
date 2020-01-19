@@ -1,0 +1,5 @@
+<p><code>import cv2<br>import glob</code></p>
+
+<p><code>images=glob.glob("*.jpg")</code></p>
+
+<p><code>for image in images:<br>    img=cv2.imread(image,0)<br>    re=cv2.resize(img,(100,100))<br>    cv2.imshow("Hey",re)<br>    cv2.waitKey(500)<br>    cv2.destroyAllWindows()<br>    cv2.imwrite("resized_"+image,re)</code></p><p>As you can see, I first created a list containing the image file paths and then iterated through that list. </p><p>The loop reads each image, resizes, displays, waits for the user input key, closes the window once the key is pressed and then writes the resized image under the existing file name together with the "resized" prefix.</p>
